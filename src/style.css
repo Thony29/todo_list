@@ -1,0 +1,360 @@
+@font-face {
+  font-family: "heydings";
+  src: url("./zantroke-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML 5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+img {
+  height: 20px;
+  width: 20px;
+}
+
+:root {
+  font-family: heydings, "Times New Roman", Times, serif;
+  font-size: 18px;
+  height: 100vh;
+  width: 100vw;
+  --grey: #dee2e6;
+  --blue: #023e8a;
+}
+body {
+  line-height: 1;
+  height: 100%;
+  width: 100%;
+  background-color: var(--grey);
+  display: grid;
+  /* grid-template-rows / grid-template-columns values */
+  grid-template: 1fr 6.5fr/1fr 4fr;
+}
+
+header {
+  color: white;
+  grid-area: 1/1/2/3;
+  display: flex;
+  align-items: center;
+  background-color: var(--blue);
+  padding: 0 6.25% 0 6.25%;
+}
+h1 {
+  font-family: "Edu TAS Beginner", cursive;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2rem;
+}
+.creator {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.creator > img {
+  height: 40px;
+  width: 40px;
+}
+.creator,
+.greeting {
+  width: 20%;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: white;
+}
+nav {
+  grid-area: 2/1/3/2;
+  border-right: 3px solid var(--blue);
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 40px;
+  height: 20%;
+}
+#projects {
+  overflow: scroll;
+  height: 55%;
+}
+
+#projects .container {
+  margin-right: auto;
+  width: 80%;
+}
+.trash-container {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.container,
+#add-project-form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  height: 40px;
+}
+
+.container:hover,
+#add-project:hover,
+main img:hover,
+button:hover,
+#add-task-form:hover,
+#add-project-form:hover,
+.trash-container:hover {
+  filter: brightness(200%);
+}
+#add-project {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(blue);
+}
+main {
+  overflow: scroll;
+  color: var(--blue);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+main > h2 {
+  margin-bottom: 2.5%;
+}
+
+#task,
+#add-task-form,
+#add-project-form {
+  height: 50px;
+  border-top: 1px solid var(--blue);
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+#task, #add-task-form{
+    width: 50%;
+}
+#add-task-form{
+    gap: 25px;
+}
+.left, .right{
+    width:50%;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.right{
+    justify-content: flex-end
+}
+button{
+    height: 30px;
+    width: 60px;
+    background-color: var(--grey);
+    color: var(--grey);
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    font-size: .8rem;
+}
+
+button:hover{
+    background-color: var(--blue);
+    color: white;
+}
+
+#overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.input-active{
+    display: block;
+}
+
+.input-inactive{
+    display: none;
+}
+form, #view-task{
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 50%;
+    width: 30%;
+    background-color: var(--grey);
+    color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 15px;
+    padding: 2.5%;
+}
+form{
+    height: 50%;
+    gap:20%
+}
+.project-form{
+    height: 25%;
+    gap: 50%;
+}
+.project-form button{
+    width: 100px;
+}
+#view-task{
+    height: 50%;
+    gap: 40px;
+    overflow: scroll;
+}
+
+.header, .footer{
+    display: flex;
+    align-items: center;
+}
+.project-footer{
+    justify-content: flex-end;
+}
+.header > h2, .footer>img{
+    margin-right: auto;
+    padding-bottom: 0px;
+}
+ input, textarea, input:focus, textarea:focus{
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+ }
+ textarea{
+    resize: none;
+ }
+ ::placeholder{
+    font-family:'Roboto', sans-serif ;
+    color: var(--blue);
+ }
+ input[type='text']{
+    height: 30px;
+ }
+ 
+ input[type='date']{
+    height: 30px;
+    font-family:'Roboto', sans-serif ;
+ }
+ form button, #view-task button{
+    height: 40px;
+    width: 80px;
+ }
